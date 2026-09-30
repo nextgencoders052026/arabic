@@ -27,7 +27,7 @@ function ExportReportView({ sessions, trendsRef, allSessionsRef }) {
     <div className="export-report" style={themeVars}>
       <div ref={trendsRef} className="export-report__page">
         <div className="export-report__header">
-          <img src="/icon.png" width={48} height={48} alt="" />
+          <img src={`${import.meta.env.BASE_URL}icon.png`} width={48} height={48} alt="" />
           <h1>Lisan</h1>
           {name && <p>{name}</p>}
           <p className="screen__lede">Exported {formatDateTime(Date.now())}</p>
