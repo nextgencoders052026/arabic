@@ -1,0 +1,1665 @@
+:root {
+  /* Type — shared across all themes */
+  --font-arabic: 'Amiri', 'Traditional Arabic', serif;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
+
+  color: var(--color-ink);
+  background: var(--color-parchment);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+  }
+}
+
+/* Themes — named sets of color variables, swapped via [data-theme] on the
+   root element. Manuscript is the default and also the bare :root fallback
+   (covers the instant before JS applies the stored preference). */
+:root,
+:root[data-theme='manuscript'] {
+  --color-parchment: #f1ead6;
+  --color-parchment-shade: #e7dcc0;
+  --color-ink: #1e3a34;
+  --color-ink-soft: rgba(30, 58, 52, 0.65);
+  --color-brass: #c08a28;
+  --color-brass-soft: rgba(192, 138, 40, 0.14);
+  --color-brass-faint: rgba(192, 138, 40, 0.07);
+  --color-teal: #2f6f62;
+  --color-teal-soft: rgba(47, 111, 98, 0.14);
+  --color-error: #ac3b2a;
+  --color-error-soft: rgba(172, 59, 42, 0.14);
+  --color-border: rgba(30, 58, 52, 0.18);
+  --shadow-card: 0 2px 8px rgba(30, 58, 52, 0.12);
+  --success: #3c8452;
+  --warning: #c08a28;
+  --warning-soft: rgba(192, 138, 40, 0.14);
+  --needs-work: #ac3b2a;
+  --bg-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(192,138,40,0.16)' stroke-width='1'%3E%3Crect x='30' y='30' width='40' height='40'/%3E%3Cpolygon points='50,15 85,50 50,85 15,50'/%3E%3Ccircle cx='50' cy='50' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: light;
+}
+
+:root[data-theme='night'] {
+  --color-parchment: #1c2321;
+  --color-parchment-shade: #232b28;
+  --color-ink: #ede6d6;
+  --color-ink-soft: rgba(237, 230, 214, 0.65);
+  --color-brass: #d4a94c;
+  --color-brass-soft: rgba(212, 169, 76, 0.16);
+  --color-brass-faint: rgba(212, 169, 76, 0.08);
+  --color-teal: #4a9484;
+  --color-teal-soft: rgba(74, 148, 132, 0.18);
+  --color-error: #e07a6a;
+  --color-error-soft: rgba(224, 122, 106, 0.18);
+  --color-border: rgba(237, 230, 214, 0.18);
+  --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.4);
+  --success: #5fae6b;
+  --warning: #d4a94c;
+  --warning-soft: rgba(212, 169, 76, 0.16);
+  --needs-work: #e07a6a;
+  --bg-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(212,169,76,0.14)' stroke-width='1'%3E%3Crect x='30' y='30' width='40' height='40'/%3E%3Cpolygon points='50,15 85,50 50,85 15,50'/%3E%3Ccircle cx='50' cy='50' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: dark;
+}
+
+:root[data-theme='green'] {
+  --color-parchment: #e3ede2;
+  --color-parchment-shade: #d2e2cf;
+  --color-ink: #1b3b2a;
+  --color-ink-soft: rgba(27, 59, 42, 0.65);
+  --color-brass: #3c8452;
+  --color-brass-soft: rgba(60, 132, 82, 0.14);
+  --color-brass-faint: rgba(60, 132, 82, 0.07);
+  --color-teal: #d4a017;
+  --color-teal-soft: rgba(212, 160, 23, 0.16);
+  --color-error: #ac3b2a;
+  --color-error-soft: rgba(172, 59, 42, 0.14);
+  --color-border: rgba(27, 59, 42, 0.18);
+  --shadow-card: 0 2px 8px rgba(27, 59, 42, 0.14);
+  --success: #1f7a5c;
+  --warning: #d4a017;
+  --warning-soft: rgba(212, 160, 23, 0.16);
+  --needs-work: #ac3b2a;
+  --bg-pattern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cg fill='none' stroke='rgba(60,132,82,0.18)' stroke-width='1'%3E%3Crect x='30' y='30' width='40' height='40'/%3E%3Cpolygon points='50,15 85,50 50,85 15,50'/%3E%3Ccircle cx='50' cy='50' r='6'/%3E%3C/g%3E%3C/svg%3E");
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-parchment);
+  background-image: var(--bg-pattern);
+  background-repeat: repeat;
+  color: var(--color-ink);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+
+#root {
+  min-height: 100svh;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 8px;
+}
+
+h1 {
+  font-size: 40px;
+  letter-spacing: -0.5px;
+  @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+}
+
+h2 {
+  font-size: 24px;
+  @media (max-width: 1024px) {
+    font-size: 20px;
+  }
+}
+
+p {
+  margin: 0 0 8px;
+}
+
+a {
+  color: var(--color-brass);
+}
+
+/* Arabic script — use wherever `word.ar` or other Arabic text is rendered.
+   Sized and weighted up from body text since Amiri needs more visual
+   weight than the Latin UI text to read comfortably. */
+.arabic-text {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  font-weight: 700;
+  font-size: 2.2em;
+  line-height: 1.6;
+}
+
+/* For tight layouts (e.g. matching-game tiles) where full size won't fit */
+.arabic-text--compact {
+  font-size: 20px;
+  line-height: 1.3;
+}
+
+/* Buttons */
+.btn {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--color-brass);
+  color: var(--color-parchment);
+}
+
+.btn-primary:hover {
+  background: color-mix(in srgb, var(--color-brass) 85%, black);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border-color: var(--color-border);
+}
+
+.btn-secondary:hover {
+  background: var(--color-brass-soft);
+}
+
+/* Cards / panels */
+.card {
+  background: var(--color-parchment-shade);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+}
+
+/* Screen layout */
+.screen {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 48px 24px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.screen--wide {
+  max-width: 960px;
+}
+
+.screen__lede {
+  color: var(--color-ink-soft);
+}
+
+/* Small greeting line in the screen body, just above the lede/first content —
+   deliberately muted/small so it doesn't compete with the screen's own heading. */
+.screen__greeting {
+  margin: 0 0 8px;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  overflow-wrap: normal;
+}
+
+.screen__greeting-ar {
+  font-size: 13px;
+  line-height: 1;
+}
+
+.screen__greeting-name {
+  font-family: var(--font-sans);
+  font-weight: 500;
+}
+
+.screen__back {
+  margin-bottom: 24px;
+}
+
+/* Minimal mid-gameplay header — back button + a small, muted greeting,
+   sharing one row so neither competes with the progress text below. */
+.gameplay-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.gameplay-header__greeting {
+  font-size: 15px;
+  line-height: 1;
+  color: var(--color-ink-soft);
+  flex-shrink: 0;
+}
+
+/* Card grids of clickable options */
+.card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 24px;
+  text-align: left;
+}
+
+.card-grid--lessons {
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+}
+
+.card-button {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition:
+    transform 0.1s ease,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.card-button:hover {
+  border-color: var(--color-brass);
+  box-shadow: 0 4px 12px rgba(30, 58, 52, 0.18);
+}
+
+.card-button:active {
+  transform: scale(0.97);
+}
+
+.card-button:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.card-button h2 {
+  margin-bottom: 4px;
+}
+
+.card-button p {
+  color: var(--color-ink-soft);
+  margin: 0;
+}
+
+/* Lesson-picker cards — last-result indicator */
+.card-grid--lessons .card-button {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson-card__result {
+  margin-top: 14px;
+}
+
+.lesson-progress-track {
+  height: 6px;
+  border-radius: 999px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.lesson-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+}
+
+.lesson-progress-fill--success {
+  background: var(--success);
+}
+
+.lesson-progress-fill--warning {
+  background: var(--warning);
+}
+
+.lesson-progress-fill--needs-work {
+  background: var(--needs-work);
+}
+
+.lesson-card__result-text {
+  font-size: 12px;
+  color: var(--color-ink-soft);
+  margin: 6px 0 0;
+}
+
+.lesson-card__result-text--muted {
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* Shared result-value coloring — Matching's moves count, wherever it appears */
+.result-value--success {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.result-value--warning {
+  color: var(--warning);
+  font-weight: 600;
+}
+
+.result-value--needs-work {
+  color: var(--needs-work);
+  font-weight: 600;
+}
+
+/* Mode picker */
+/* Mode picker — a fixed-height flex column (app bar + fitted body) so the
+   4 mode cards fit on one screen without scrolling on common phone
+   heights, instead of a fixed-padding layout that doesn't adapt. */
+.mode-picker {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  max-width: 720px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.mode-picker__body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 24px 12px;
+  text-align: center;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.mode-picker__lede {
+  flex-shrink: 0;
+  margin: 0 0 8px;
+}
+
+.mode-picker__cards {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.mode-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px 16px;
+}
+
+.mode-card h2 {
+  font-size: 17px;
+  margin-bottom: 2px;
+}
+
+.mode-card p {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+p.mode-card__detail {
+  font-size: 12px;
+  line-height: 1.3;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+
+.mode-card__icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  background: var(--color-teal-soft);
+  color: var(--color-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* App bar — persistent top bar on Home/Progress/Settings and post-round summaries */
+.app-bar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  min-height: 56px;
+  padding: 6px 8px;
+  background: var(--color-parchment-shade);
+  border-bottom: 2px solid var(--color-brass);
+  box-sizing: border-box;
+  flex-shrink: 0;
+}
+
+/* Inside a padded .screen (Progress/Settings/post-round summaries), bleed to
+   the screen's edges and reserve space before the content below. Screens
+   with their own full-height layout (e.g. .mode-picker) handle this instead
+   via their own wrapper, so the app bar needs no extra margin there. */
+.screen > .app-bar:first-child {
+  margin: -48px -24px 24px;
+}
+
+.app-bar__menu-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.app-bar__menu-btn:hover {
+  background: var(--color-brass-soft);
+}
+
+.app-bar__menu-btn:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.app-bar__text {
+  min-width: 0;
+  text-align: center;
+}
+
+/* The screen title (Progress, Settings, …) — the app bar's only line now;
+   the greeting moved into the screen body (see .screen__greeting below). */
+.app-bar__subtitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Two-line "brand" app bar (Home/Progress/Settings/About): a small muted
+   "Lisan" line above the bolder, gold-accented screen name. */
+.app-bar__brand {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  color: var(--color-ink-soft);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-bar__subtitle--accent {
+  color: var(--color-brass);
+  line-height: 1.15;
+}
+
+/* Drawer navigation */
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+  z-index: 45;
+}
+
+.drawer-backdrop--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 260px;
+  max-width: 80vw;
+  background: var(--color-parchment-shade);
+  border-right: 1px solid var(--color-border);
+  box-shadow: 4px 0 16px rgba(0, 0, 0, 0.25);
+  transform: translateX(-100%);
+  transition: transform 220ms ease;
+  z-index: 46;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 16px;
+}
+
+.drawer--open {
+  transform: translateX(0);
+}
+
+.drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.drawer__title {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--color-ink);
+}
+
+.drawer__close {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.drawer__close:hover {
+  background: var(--color-brass-soft);
+}
+
+.drawer__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.drawer__item {
+  appearance: none;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--color-ink);
+  font: inherit;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.drawer__item:hover {
+  background: var(--color-brass-soft);
+}
+
+.drawer__item--active {
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
+}
+
+/* Settings screen — theme picker */
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+@media (max-width: 480px) {
+  .theme-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.theme-swatch {
+  appearance: none;
+  font: inherit;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 2px solid var(--color-border);
+  background: var(--color-parchment-shade);
+  transition:
+    border-color 0.15s,
+    transform 0.1s ease;
+}
+
+.theme-swatch:active {
+  transform: scale(0.97);
+}
+
+.theme-swatch:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.theme-swatch--selected {
+  border-color: var(--color-brass);
+}
+
+.theme-swatch__preview {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+.theme-swatch__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.theme-swatch__label {
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--color-ink);
+}
+
+.theme-swatch--selected .theme-swatch__label {
+  color: var(--color-brass);
+}
+
+/* Reusable text input (Welcome screen name prompt, Settings name field) */
+.text-input {
+  font: inherit;
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-parchment-shade);
+  color: var(--color-ink);
+  box-sizing: border-box;
+}
+
+.text-input:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+/* Welcome / first-launch name prompt */
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100dvh;
+}
+
+.welcome__form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 16px;
+}
+
+/* Settings — name field */
+.settings-section {
+  text-align: left;
+  margin-top: 32px;
+}
+
+.settings-section h2 {
+  margin-bottom: 12px;
+}
+
+.settings-section + .settings-section {
+  margin-top: 16px;
+}
+
+.settings-hint {
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  margin: 0 0 8px;
+}
+
+.settings-action-btn {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.settings-action-btn + .settings-action-btn {
+  margin-top: 12px;
+}
+
+/* Decorative gold divider — Home + About, below the greeting */
+.app-name-heading {
+  text-align: center;
+}
+
+.app-name-heading__rule {
+  display: block;
+  width: 56px;
+  height: 12px;
+  margin: 10px auto 0;
+  color: var(--color-brass);
+}
+
+/* About screen */
+.about-content {
+  text-align: left;
+}
+
+.about-section {
+  margin-top: 28px;
+}
+
+.about-section:first-child {
+  margin-top: 0;
+}
+
+.about-section p {
+  color: var(--color-ink-soft);
+}
+
+.about-mode-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.about-mode-list__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.about-mode-list__icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--color-brass);
+}
+
+.about-mode-list__item p {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+/* "Coming next" teaser — deliberately borderless (unlike .about-callout's
+   bordered alert box), and uses --color-brass-faint rather than the
+   standard --color-brass-soft: in the Manuscript and Night themes,
+   --warning is literally the same hex as --color-brass, so reusing
+   -soft here would make this render pixel-identical to the warning
+   callout. The fainter, dedicated tint keeps it visibly softer/lighter
+   in every theme, so it reads as a gentle preview, not a caution. */
+.about-teaser {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--color-brass-faint);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 28px;
+}
+
+.about-teaser__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.about-teaser__header h2 {
+  margin: 0;
+}
+
+.about-teaser__icon {
+  flex-shrink: 0;
+  color: var(--color-brass);
+}
+
+.about-teaser__badge {
+  margin-left: auto;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-brass);
+  color: var(--color-parchment);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.about-teaser p {
+  margin: 0;
+  color: var(--color-ink-soft);
+}
+
+.about-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--warning-soft);
+  border: 1px solid var(--warning);
+  border-radius: 12px;
+  padding: 16px;
+  margin-top: 32px;
+}
+
+.about-callout__icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+  color: var(--warning);
+}
+
+.about-callout p {
+  margin: 0;
+  color: var(--color-ink);
+}
+
+.about-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-version {
+  color: var(--color-ink-soft);
+  font-size: 14px;
+  margin: 0 0 8px;
+}
+
+/* Version history modal */
+.changelog-card {
+  text-align: left;
+  align-items: stretch;
+  max-width: 420px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.changelog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.changelog-entry__version {
+  font-weight: 600;
+  margin: 0 0 4px;
+}
+
+.changelog-entry ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--color-ink-soft);
+}
+
+/* Progress screen */
+.app-bar__spinner {
+  color: var(--color-brass);
+  animation: app-bar-spin 0.8s linear infinite;
+}
+
+@keyframes app-bar-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.history-disclaimer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--warning-soft);
+  border: 1px solid var(--warning);
+  border-radius: 10px;
+  padding: 8px 10px;
+  margin: 12px 0 0;
+  text-align: left;
+}
+
+.history-disclaimer__icon {
+  flex-shrink: 0;
+  color: var(--warning);
+}
+
+.history-disclaimer p {
+  flex: 1;
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-ink);
+}
+
+.history-disclaimer__dismiss {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.history-disclaimer__dismiss:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.export-error-note {
+  background: var(--color-error-soft);
+  border: 1px solid var(--color-error);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 12px 0 0;
+  color: var(--color-error);
+  font-size: 14px;
+  text-align: left;
+}
+
+.history-recovered-note {
+  background: var(--color-brass-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 24px 0 0;
+  color: var(--color-ink);
+  font-size: 14px;
+  text-align: left;
+}
+
+.history-mode-note {
+  background: var(--color-brass-soft);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin: 16px 0 0;
+  color: var(--color-ink-soft);
+  font-size: 13px;
+  text-align: left;
+}
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.history-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  background: var(--color-parchment-shade);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+}
+
+.history-stat__value {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-ink);
+}
+
+.history-stat__label {
+  font-size: 12px;
+  color: var(--color-ink-soft);
+  text-align: center;
+}
+
+.history-missed {
+  text-align: left;
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.history-missed__list {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-missed__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.history-missed__en {
+  color: var(--color-ink-soft);
+  flex: 1;
+}
+
+.history-group-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  margin-top: 16px;
+}
+
+.history-group-card__header {
+  margin: 0 0 4px;
+  font-size: 16px;
+}
+
+.history-lesson-group {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--color-border);
+}
+
+.history-lesson-group:first-of-type {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.history-lesson-group__header {
+  margin: 0 0 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.history-group-card__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.history-group-card__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.history-group-card__row span:last-child {
+  text-align: right;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.history-group-card__timestamp {
+  font-size: 13px;
+}
+
+.history-lesson-group__expand {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 8px 0 0;
+  margin: 0;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-teal);
+  cursor: pointer;
+}
+
+.history-lesson-group__expand:hover {
+  text-decoration: underline;
+}
+
+/* Progress — mode filter, a static 2x2 grid so all 4 options are always
+   visible with no scrolling, on any phone width. */
+.mode-filter {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.mode-filter__tab {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 10px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-parchment-shade);
+  color: var(--color-ink-soft);
+  text-align: center;
+}
+
+.mode-filter__tab span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 380px) {
+  .mode-filter__tab {
+    font-size: 12.5px;
+    padding: 10px 4px;
+  }
+}
+
+.mode-filter__tab:hover {
+  border-color: var(--color-brass);
+}
+
+.mode-filter__tab:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.mode-filter__tab--active {
+  background: var(--color-teal-soft);
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+/* Progress — per-lesson trend charts */
+.history-chart-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+  margin-top: 8px;
+}
+
+.history-chart-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.history-chart-card__header h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.history-chart-card__header p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--color-ink-soft);
+  flex-shrink: 0;
+}
+
+.history-chart-card__caption {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: var(--color-ink-soft);
+}
+
+.history-chart-card__chart {
+  margin: 0 -8px;
+}
+
+/* Top-level Progress tabs — Trends vs All Sessions, a level above the
+   mode-filter pills so the two views read as clear siblings. */
+.history-view-tabs {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.history-view-tabs__tab {
+  appearance: none;
+  flex: 1;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 10px 12px;
+  border: none;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: var(--color-ink-soft);
+}
+
+.history-view-tabs__tab:hover {
+  color: var(--color-ink);
+}
+
+.history-view-tabs__tab:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: -2px;
+}
+
+/* Hidden PDF export snapshot — rendered off-screen (not display:none, so
+   html2canvas and recharts' layout measurement both still work), only while
+   an export is in progress. */
+.export-report-offscreen {
+  position: fixed;
+  top: 0;
+  left: -10000px;
+  width: 800px;
+  pointer-events: none;
+}
+
+.export-report__page {
+  width: 800px;
+  padding: 32px;
+  box-sizing: border-box;
+  text-align: left;
+  /* Flat color on purpose — the app's decorative diamond-pattern background
+     (used on .screen/body) compresses poorly under JPEG and adds nothing to
+     a report, so this export-only view never inherits it. The color itself
+     still follows the active theme, via --color-parchment set inline on the
+     .export-report ancestor (see ExportReportView.jsx). */
+  background-color: var(--color-parchment);
+  background-image: none;
+}
+
+.export-report__header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.export-report__header img {
+  display: block;
+  margin: 0 auto 8px;
+}
+
+.export-report__header p {
+  margin: 0;
+}
+
+.export-report__section-title {
+  margin: 32px 0 16px;
+  border-bottom: 2px solid var(--color-brass);
+  padding-bottom: 8px;
+}
+
+.export-report__mode-block {
+  margin-top: 32px;
+}
+
+.export-report__mode-block h2 {
+  margin-bottom: 4px;
+}
+
+.history-view-tabs__tab--active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-brass);
+}
+
+/* Flashcards */
+.flashcard {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  max-width: 360px;
+  margin: 24px auto 0;
+  padding: 40px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}
+
+.flashcard:hover {
+  border-color: var(--color-brass);
+  box-shadow: 0 4px 12px rgba(30, 58, 52, 0.18);
+}
+
+.flashcard:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.flashcard__answer {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-teal);
+  animation: flashcard-answer-in 220ms ease;
+}
+
+@keyframes flashcard-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flashcard-actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Feedback states */
+.state-correct {
+  color: var(--color-teal);
+}
+
+.state-incorrect {
+  color: var(--color-error);
+}
+
+.badge-correct {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-teal-soft);
+  color: var(--color-teal);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-weight: 600;
+}
+
+.badge-incorrect {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-error-soft);
+  color: var(--color-error);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-weight: 600;
+}
+
+/* Multiple choice */
+.quiz-icon {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 560px;
+  margin: 0 auto;
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.quiz-option {
+  appearance: none;
+  font: inherit;
+  color: var(--color-ink);
+  cursor: pointer;
+  background: var(--color-parchment-shade);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 16px;
+  font-weight: 600;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    opacity 0.2s;
+}
+
+.quiz-option:hover:not(:disabled) {
+  border-color: var(--color-brass);
+}
+
+.quiz-option:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.quiz-option:disabled {
+  cursor: default;
+}
+
+.quiz-option--dimmed {
+  opacity: 0.5;
+}
+
+.quiz-option--correct {
+  background: var(--color-teal-soft);
+  border-color: var(--color-teal);
+  color: var(--color-teal);
+}
+
+.quiz-option--incorrect {
+  background: var(--color-error-soft);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* Matching game */
+.matching-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(112px, 1fr));
+  gap: 12px;
+  margin-top: 24px;
+}
+
+/* Force more columns on narrow screens — otherwise a full 12-pair round
+   (24 cards) stretches to several screens tall, which defeats a memory
+   game where you need to see the board at a glance. */
+@media (max-width: 480px) {
+  .matching-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+}
+
+.matching-card {
+  appearance: none;
+  font: inherit;
+  aspect-ratio: 4 / 5;
+  border-radius: 10px;
+  border: 1px solid var(--color-border);
+  background: var(--color-ink);
+  color: var(--color-brass);
+  font-size: 26px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px;
+  box-sizing: border-box;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s,
+    color 0.2s,
+    box-shadow 0.2s;
+}
+
+.matching-card--flipped {
+  background: var(--color-parchment-shade);
+  color: var(--color-ink);
+  font-size: 13px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.matching-card--over {
+  border-color: var(--color-brass);
+  box-shadow: 0 0 0 4px var(--color-brass-soft);
+}
+
+.matching-card--matched {
+  border-color: var(--color-teal);
+  animation: matching-card-match 700ms ease-out forwards;
+}
+
+.matching-card--incorrect-flash {
+  animation: matching-card-error-flash 500ms ease-out;
+}
+
+.matching-card__label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  line-height: 1.2;
+}
+
+@media (max-width: 480px) {
+  .matching-card__label {
+    font-size: 10px;
+  }
+}
+
+@keyframes matching-card-error-flash {
+  0% {
+    background: var(--color-error-soft);
+    border-color: var(--color-error);
+    box-shadow: 0 0 0 4px var(--color-error-soft);
+  }
+  100% {
+    background: var(--color-parchment-shade);
+    border-color: var(--color-border);
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+@keyframes matching-card-match {
+  0% {
+    background: var(--color-parchment-shade);
+    color: var(--color-ink);
+    box-shadow: 0 0 0 4px var(--color-teal-soft);
+    opacity: 1;
+  }
+  40% {
+    background: var(--color-teal);
+    color: var(--color-parchment);
+    box-shadow: 0 0 0 10px var(--color-teal-soft);
+    opacity: 1;
+  }
+  100% {
+    background: var(--color-teal-soft);
+    color: var(--color-teal);
+    box-shadow: 0 0 0 0 transparent;
+    opacity: 0.55;
+  }
+}
+
+/* Word-chip pool — the draggable Arabic words below the icon grid */
+.chip-pool {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.chip {
+  appearance: none;
+  font: inherit;
+  color: var(--color-ink);
+  background: var(--color-parchment-shade);
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 10px 20px;
+  cursor: grab;
+  touch-action: none;
+  box-shadow: var(--shadow-card);
+}
+
+.chip:active {
+  cursor: grabbing;
+}
+
+.chip:focus-visible {
+  outline: 2px solid var(--color-brass);
+  outline-offset: 2px;
+}
+
+.chip--overlay {
+  cursor: grabbing;
+  box-shadow: 0 8px 20px rgba(30, 58, 52, 0.25);
+}
+
+/* Instructions overlay */
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 58, 52, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  z-index: 50;
+  box-sizing: border-box;
+}
+
+.overlay-card {
+  max-width: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+}

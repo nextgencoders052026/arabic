@@ -1,0 +1,73 @@
+1	house
+1	mosque
+1	door
+1	book
+1	pen
+1	key
+1	writing table
+1	bed
+1	chair
+1	star
+1	shirt
+1	doctor
+1	boy
+1	student
+1	man
+1	merchant
+1	dog
+1	cat
+1	donkey
+1	horse
+1	camel
+1	rooster
+1	teacher
+1	kerchief
+2	imam
+2	sugar
+2	stone
+2	milk
+3	rich
+3	poor
+3	tall
+3	short
+3	cold
+3	hot
+3	sitting
+3	standing
+3	new
+3	old
+3	near
+3	far away
+3	clean
+3	dirty
+3	small
+3	big
+3	light (weight)
+3	heavy
+3	paper
+3	water
+3	apple
+3	beautiful
+3	shop
+3	sick
+3	sweet
+3	notebook
+3	delicious
+4	room
+4	bathroom
+4	kitchen
+4	clock / watch
+4	school
+4	classroom
+4	university
+4	restroom
+4	market
+4	director / principal
+4	Japan
+4	China
+4	India
+4	the Philippines
+4	he went
+4	he went out / left
+4	sun
+4	sky

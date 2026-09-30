@@ -1,0 +1,113 @@
+5	the messenger
+5	closed
+5	car
+5	paternal uncle
+5	name
+5	here
+5	street
+5	bag / briefcase
+5	there
+5	the Ka'bah
+5	under / beneath
+5	daughter / girl
+5	maternal uncle
+5	son
+6	hand
+6	leg
+6	eye
+6	ear
+6	head
+6	nose
+6	mouth
+6	face
+6	brother
+6	sister
+6	also
+6	very
+6	iron (for ironing)
+6	cow
+6	bicycle
+6	spoon
+6	farmer
+6	mother
+6	father
+6	fridge
+6	tea
+6	west
+6	coffee
+6	cooking pot
+6	window
+6	east
+6	fast
+7	she-camel
+7	duck
+7	nurse
+7	egg
+7	the muezzin (calls the Athan)
+7	hen
+8	behind
+8	in front of
+8	he sat
+8	engineer
+8	America
+8	Switzerland
+8	England
+8	knife
+8	hospital
+8	Iraq
+8	Germany
+8	president
+9	lazy
+9	hungry
+9	thirsty
+9	angry
+9	full
+9	fruit
+9	sparrow
+9	bird
+9	Arabic (language)
+9	language
+9	easy
+9	hardworking
+9	famous
+9	English (language)
+9	difficult
+9	city
+9	Cairo
+9	today
+9	why
+9	cup
+9	library
+9	now / just now
+9	clinic
+9	fan
+9	Indonesia
+9	Kuwait
+9	secondary school
+9	minister
+9	sharp
+10	colleague / class-mate
+10	young man
+10	husband
+10	one
+10	child
+10	with
+11	in it (masc.)
+11	in it (fem.)
+11	I love / I like
+12	paternal aunt
+12	maternal aunt
+12	maternity hospital
+12	Sir!
+12	Madam!
+12	how are you?
+12	tree
+12	Syria
+12	middle school
+12	inspector
+12	young lady
+12	notebook
+12	Malaysia
+12	I am fine
+12	after
+12	Kingdom of Saudi Arabia

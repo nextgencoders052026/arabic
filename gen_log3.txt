@@ -1,0 +1,103 @@
+13	man
+13	people
+13	pilgrim
+13	guest
+13	friend
+13	village
+13	restaurant
+13	field
+13	old man / learned man
+13	wife
+13	lady professor
+13	woman
+14	the Lord
+14	Islam
+14	religion
+14	prophet
+14	welcome
+14	constitution / law
+14	prayer direction
+14	lawcourt
+14	grandson
+14	garden
+14	Saturday
+14	month
+14	the month of Rajab
+14	Greece
+14	airport
+14	faculty / college
+14	faculty of medicine
+14	faculty of engineering
+14	faculty of commerce
+14	faculty of Islamic law
+14	Christian
+14	May Allah grant him health!
+15	before
+15	he returned
+15	lesson
+15	prayer
+15	the call to prayer
+15	week
+15	examination
+16	river
+16	sea
+16	hotel
+16	airplane
+17	company
+17	director of the company
+17	cheap
+17	Japanese
+18	wheel
+18	writing board
+18	festival
+18	riyal
+18	year
+18	city district
+18	rak'ah (a unit of prayer)
+18	ruler (for drawing lines)
+18	shop / store
+19	one (1)
+19	two (2)
+19	three (3)
+19	four (4)
+19	five (5)
+19	six (6)
+19	seven (7)
+19	eight (8)
+19	nine (9)
+19	ten (10)
+19	all
+19	country
+19	different
+19	bus
+19	Europe
+19	thanks
+19	day
+19	price
+19	half
+19	1/10th of a riyal
+19	passenger
+19	question
+19	pocket
+20	word
+20	magazine / journal
+20	letter (of the alphabet)
+21	colour
+21	spacious
+21	Asia
+21	Africa
+22	red
+22	blue
+22	green
+22	black
+22	yellow
+22	white
+22	Baghdad
+22	Jeddah
+22	tea-cup
+22	minute
+22	he said
+22	she said
+23	Istanbul
+23	Taif (city)
+23	Washington (city)
