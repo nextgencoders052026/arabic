@@ -14,7 +14,7 @@ import { MODES } from './data/modes'
 import { VOCABULARY } from './data/vocabulary'
 import { getStoredName } from './utils/profile'
 import { sendFeedback } from './utils/feedback'
-import { requestAppReview } from './utils/rateApp'
+import { requestAppReviewManual } from './utils/rateApp'
 
 const GAME_COMPONENTS = {
   flashcards: Flashcards,
@@ -51,7 +51,7 @@ function App() {
       onNavigate={navigateTo}
       activeScreen={screen}
       onSendFeedback={sendFeedback}
-      onRateApp={requestAppReview}
+      onRateApp={requestAppReviewManual}
     />
   )
   const openMenu = () => setDrawerOpen(true)

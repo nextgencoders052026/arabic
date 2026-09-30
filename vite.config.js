@@ -2,26 +2,31 @@ import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// In CI (GitHub Pages) VITE_BASE_URL is set to /<repo-name>/ automatically.
+// Locally it is unset so the dev server runs at /. The manifest's scope and
+// start_url must track this too — hardcoding them to '/' would be wrong
+// under the GitHub Pages subpath (the manifest would claim to control the
+// whole origin, and start_url would 404 on a fresh install).
+const base = process.env.VITE_BASE_URL || '/'
+
 // https://vite.dev/config/
 export default defineConfig({
-  // In CI (GitHub Pages) VITE_BASE_URL is set to /<repo-name>/ automatically.
-  // Locally it is unset so the dev server runs at /.
-  base: process.env.VITE_BASE_URL || '/',
+  base,
   plugins: [
     react(),
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['icon.png', 'icon-192.png', 'icon-512.png', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Lisan — Arabic Vocabulary',
+        name: 'Lisan',
         short_name: 'Lisan',
         description: 'Learn Arabic vocabulary',
-        theme_color: '#c08a28',
+        theme_color: '#1e3a34',
         background_color: '#f1ead6',
         display: 'standalone',
         orientation: 'portrait',
-        scope: '/',
-        start_url: '/',
+        scope: base,
+        start_url: base,
         icons: [
           {
             src: 'icon-192.png',
