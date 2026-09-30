@@ -2,7 +2,7 @@ import { Device } from '@capacitor/device'
 import { getAppVersion } from './appInfo'
 
 const FEEDBACK_EMAIL = 'nextgencoders052026@gmail.com'
-const FEEDBACK_SUBJECT = 'Arabic Vocab Game Feedback'
+const FEEDBACK_SUBJECT = 'Lisan Feedback'
 
 export async function sendFeedback() {
   const appVersion = await getAppVersion()

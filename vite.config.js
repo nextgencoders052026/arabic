@@ -1,6 +1,7 @@
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 import { VitePWA } from 'vite-plugin-pwa'
+import pkg from './package.json' with { type: 'json' }
 
 // In CI (GitHub Pages) VITE_BASE_URL is set to /<repo-name>/ automatically.
 // Locally it is unset so the dev server runs at /. The manifest's scope and
@@ -12,6 +13,9 @@ const base = process.env.VITE_BASE_URL || '/'
 // https://vite.dev/config/
 export default defineConfig({
   base,
+  define: {
+    __APP_VERSION__: JSON.stringify(pkg.version),
+  },
   plugins: [
     react(),
     VitePWA({
