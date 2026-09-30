@@ -15,7 +15,7 @@ export default defineConfig({
       manifest: {
         name: 'Lisan — Arabic Vocabulary',
         short_name: 'Lisan',
-        description: 'Learn Arabic vocabulary from the Madina Arabic Books curriculum',
+        description: 'Learn Arabic vocabulary',
         theme_color: '#c08a28',
         background_color: '#f1ead6',
         display: 'standalone',
