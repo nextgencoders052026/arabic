@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { applyTheme, getStoredTheme } from './utils/theme'
+import { trackPwaInstall } from './utils/analytics'
 
 applyTheme(getStoredTheme())
+trackPwaInstall()
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
