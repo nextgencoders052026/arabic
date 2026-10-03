@@ -98,9 +98,14 @@ async function addElementAsPages(pdf, element, { startNewPage, backgroundColor }
   }
   const breaks = [...breakSet].sort((a, b) => a - b)
 
+  // `startNewPage` only controls whether a page is added *before* this
+  // element starts (so it lands after whatever the previous element drew).
+  // The first slice drawn here always lands on whatever page is current at
+  // that point — never behind another addPage() — regardless of
+  // startNewPage, or an extra blank page is inserted between elements.
   if (startNewPage) pdf.addPage()
   let sliceStart = 0
-  let isFirstPage = !startNewPage
+  let isFirstPage = true
 
   while (sliceStart < canvas.height) {
     const idealEnd = sliceStart + pageHeightPx
