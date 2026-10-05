@@ -1439,6 +1439,15 @@ p.mode-card__detail {
   margin: 24px 0;
 }
 
+/* Shown in place of an <img> for words with no icon (WordIcon) — a plain
+   disc in the card's own resting tone, so the empty slot reads as
+   intentional rather than a broken image. */
+.icon-placeholder {
+  border-radius: 50%;
+  background: var(--color-parchment-shade);
+  border: 1px solid var(--color-border);
+}
+
 .quiz-options {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

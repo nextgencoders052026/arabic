@@ -5,6 +5,10 @@ export function slugify(text) {
     .replace(/^-+|-+$/g, '')
 }
 
+export function hasIcon(word) {
+  return !word.noIcon
+}
+
 export function getIconPath(word) {
   // BASE_URL is '/' locally and '/arabic/' on GitHub Pages — a hardcoded
   // leading '/' here would 404 under that subpath (Vite only rewrites

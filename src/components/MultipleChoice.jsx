@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
-import { getIconPath } from '../utils/icons'
 import { buildQuestions } from '../utils/quiz'
 import { playCorrect, playIncorrect } from '../utils/sound'
 import { useSessionRecorder } from '../utils/useSessionRecorder'
 import AppBar from './AppBar'
 import GameplayHeader from './GameplayHeader'
+import WordIcon from './WordIcon'
 
 const FEEDBACK_DELAY_MS = 900
 
@@ -108,12 +108,7 @@ function MultipleChoice({ words, mode, modeLabel, lesson, onExit, onOpenMenu }) 
       </GameplayHeader>
 
       <div className="quiz-icon">
-        <img
-          src={getIconPath(question.word)}
-          alt={question.word.ar}
-          width={120}
-          height={120}
-        />
+        <WordIcon word={question.word} size={120} alt={question.word.ar} />
       </div>
       <p className="arabic-text">{question.word.ar}</p>
 

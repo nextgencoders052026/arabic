@@ -231,10 +231,10 @@ export const VOCABULARY = [
   { ar: "اِمْرَأَةٌ", en: "woman", lesson: 13, category: "person" },
 
   // ---------------- Lesson 14 ----------------
-  { ar: "الرَّبُّ", en: "the Lord", lesson: 14, category: "religion" },
+  { ar: "الرَّبُّ", en: "the Lord", lesson: 14, category: "religion", noIcon: true },
   { ar: "الإِسْلَامُ", en: "Islam", lesson: 14, category: "religion" },
   { ar: "الدِّينُ", en: "religion", lesson: 14, category: "religion" },
-  { ar: "النَّبِيُّ", en: "prophet", lesson: 14, category: "religion" },
+  { ar: "النَّبِيُّ", en: "prophet", lesson: 14, category: "religion", noIcon: true },
   { ar: "أَهْلاً وَسَهْلاً وَمَرْحَباً", en: "welcome", lesson: 14, category: "phrase" },
   { ar: "الدُّسْتُورُ", en: "constitution / law", lesson: 14, category: "object" },
   { ar: "القِبْلَةُ", en: "prayer direction", lesson: 14, category: "religion" },

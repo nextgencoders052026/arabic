@@ -8,7 +8,6 @@ import {
   useSensor,
   useSensors,
 } from '@dnd-kit/core'
-import { getIconPath } from '../utils/icons'
 import { shuffle } from '../utils/shuffle'
 import InstructionsOverlay, { hasSeenInstructions } from './InstructionsOverlay'
 import { playCorrect, playIncorrect } from '../utils/sound'
@@ -16,6 +15,7 @@ import { useSessionRecorder } from '../utils/useSessionRecorder'
 import { formatMoves, getMovesBand } from '../utils/matchingResult'
 import AppBar from './AppBar'
 import GameplayHeader from './GameplayHeader'
+import WordIcon from './WordIcon'
 
 const MAX_ROUND_WORDS = 12
 const INCORRECT_FLASH_MS = 500
@@ -66,7 +66,7 @@ function IconTarget({ wordIndex, word, isMatched, isIncorrectFlash }) {
 
   return (
     <div ref={setNodeRef} className={className}>
-      <img src={getIconPath(word)} alt="" width={56} height={56} />
+      <WordIcon word={word} size={56} />
       <span className="matching-card__label">{word.en}</span>
       {isMatched && <span className="arabic-text arabic-text--compact">{word.ar}</span>}
     </div>

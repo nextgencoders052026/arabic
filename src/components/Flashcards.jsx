@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react'
-import { getIconPath } from '../utils/icons'
 import { shuffle } from '../utils/shuffle'
 import { playCorrect, playFlip, playIncorrect } from '../utils/sound'
 import { useSessionRecorder } from '../utils/useSessionRecorder'
 import AppBar from './AppBar'
 import GameplayHeader from './GameplayHeader'
+import WordIcon from './WordIcon'
 
 function Flashcards({ words, mode, modeLabel, lesson, onExit, onOpenMenu }) {
   const [deck, setDeck] = useState(() => shuffle(words))
@@ -90,12 +90,7 @@ function Flashcards({ words, mode, modeLabel, lesson, onExit, onOpenMenu }) {
           setRevealed((r) => !r)
         }}
       >
-        <img
-          src={getIconPath(word)}
-          alt={revealed ? word.en : ''}
-          width={120}
-          height={120}
-        />
+        <WordIcon word={word} size={120} alt={revealed ? word.en : ''} />
         <p className="arabic-text">{word.ar}</p>
         {revealed ? (
           <p className="flashcard__answer">{word.en}</p>
